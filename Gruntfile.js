@@ -41,20 +41,20 @@ module.exports = function(grunt) {
                 styles: [],
                 // Slidedeck title
                 // This is used as cover slide title and as html title.
-//                title: '',
+                title: 'Git',
                 // Description meta.
                 // default value is extracted from `package.json`
 //                description: '',
                 // Slides author.
                 // default value is extracted from `package.json`
-//                author: { name: '', url: '', email: ''},
+                author: { name: 'Julien Muetton', url: 'http://muetton.me', email: 'julien@muetton.me'},
                 // twitter username
                 // If provided, will be displayed after author name.
-//                twitter: '',
+                twitter: 'themouette',
                 // cover slide image url.
                 // This image is inserted between title and credits.
                 // example value 'img/jslogo.jpg'
-                cover: null
+                cover: 'img/cover.png'
             }
         },
         connect: {

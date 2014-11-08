@@ -50,7 +50,7 @@
                     <small>
                         By
                         <% if (options.author.url) { %>
-                            <a href="<% options.author.url %>"><%= options.author.name %></a>
+                            <a href="<%- options.author.url %>"><%= options.author.name %></a>
                         <% } else { %>
                             <%= options.author.name %>
                         <% } %>

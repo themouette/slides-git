@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+git checkout -b release &&
+    grunt release &&
+    git add -f css/theme/*.css &&
+    git commit -m 'Latest release' &&
+    git push -f origin release:gh-pages
+
+git checkout master
+
+git branch -D release

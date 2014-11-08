@@ -33,7 +33,7 @@ Whenever a sass file or a markdown file is changed, output is rebuilt.
 In dev environment, `index-dev.html` file is generated.
 
 ``` sh
-$ grunt dev ; open index-dev.html
+$ npm run dev ; open index-dev.html
 ```
 
 ### grunt release
@@ -41,7 +41,7 @@ $ grunt dev ; open index-dev.html
 Build and optimize prensentation.
 
 ``` sh
-$ grunt release ; open index.html
+$ npm run release ; npm start index.html
 ```
 
 ### grunt themes

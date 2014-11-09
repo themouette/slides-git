@@ -14,19 +14,5 @@
 // <pre><code class="javascript runnable">// Type your code here</code></pre>
 // ```
 // @import "runnable";
+@import "cover";
 
-
-#presentation-location {
-    float: left;
-    display: block;
-    &::before {
-        content: $location;
-    }
-}
-#presentation-date {
-    float: right;
-    display: block;
-    &::before {
-        content: $date;
-    }
-}

@@ -1,8 +1,11 @@
 .cover {
     .cover-img {
         display:block;
-        height: 250px;
-        margin:20px auto;
+        height: 300px;
+        margin: 40px auto;
+        border: none;
+        background: none;
+        box-shadow:none;
     }
     .given {
         margin: 0;

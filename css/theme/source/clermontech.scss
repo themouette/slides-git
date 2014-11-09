@@ -30,13 +30,13 @@
 
 // Override theme settings (see ../template/settings.scss)
 $mainColor: #000;
-$headingColor: #000;
+$headingColor: #2795b6;//#000;
 $headingTextShadow: none;
 $backgroundColor: #eee;
 $linkColor: #2795b6;
 $linkColorHover: lighten( $linkColor, 20% );
 $selectionBackgroundColor: rgba(79, 64, 28, 0.99);
-$heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
+//$heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
 
 // This is the location displayed on the cover page.
 $location: "Clermont'ech";
@@ -68,4 +68,20 @@ $date: "2014 November, 15th";
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
+}
+
+.no-title {
+    height: 600px;
+    h1, h2 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        color: #000;
+    }
+    h1 {
+        top: 20px;
+    }
+    h2 {
+        bottom: 20px;
+    }
 }

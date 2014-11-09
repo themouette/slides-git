@@ -1,6 +1,6 @@
 <!-- .slide: data-background="img/branches/use-branches.jpg" data-background-size="cover" class="no-title" -->
 
-## Branches
+# Branches
 
 ---
 

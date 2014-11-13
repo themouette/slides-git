@@ -1,4 +1,4 @@
-<!-- .slide: data-background="img/setup/setup.jpg" data-background-size="cover" class="no-title" -->
+<!-- .slide: data-background="img/setup/setup.jpg" data-background-size="cover" class="no-title black" -->
 
 # Setup
 

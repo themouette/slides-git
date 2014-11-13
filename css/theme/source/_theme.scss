@@ -16,17 +16,51 @@
 // @import "runnable";
 @import "cover";
 
+.reveal .slides>section.present,
+.reveal .slides>section>section.present {
+
+    &.hide-title {
+        h1, h2 {display: none;}
+    }
+
+    &.no-title {
+        height: 600px;
+        h1, h2 {
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        h1 {
+            top: 20px;
+        }
+        h2 {
+            bottom: 20px;
+        }
+    }
+    &.black {
+        h1, h2 { color: #000; }
+    }
+    &.white {
+        h1, h2 { color: #fff; }
+    }
+    &.grey {
+        h1, h2 { color: #444; }
+    }
+    &.blue {
+        h1, h2 { color: #2795b6; }
+    }
+}
+
 .reveal section {
     img {
         border: none;
     }
 
-    .two-cols {
+    .two-cols, .three-cols {
         & > *,
         & > .is-top{
             vertical-align: top;
             display: inline-block;
-            width: 48%;
         }
 
         &.is-middle > * {
@@ -36,6 +70,13 @@
         &.is-bottom > * {
             vertical-align: bottom;
         }
+    }
+
+    .two-cols > * {
+        width: 48%;
+    }
+    .tthree-cols > * {
+        width: 32%;
     }
 
     .fragment.visible {

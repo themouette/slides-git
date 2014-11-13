@@ -1,4 +1,4 @@
-<!-- .slide: data-background="img/getting-started/surgery.jpg" data-background-size="cover" class="no-title" -->
+<!-- .slide: data-background="img/getting-started/plunge.jpg" data-background-size="cover" class="no-title black" -->
 
 # Getting Started
 

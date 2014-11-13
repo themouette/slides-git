@@ -1,8 +1,6 @@
-<!-- .slide: data-background="img/local-repository/plunge.jpg" data-background-size="cover" class="no-title" -->
+<!-- .slide: data-background="img/local-repository/local.jpg" data-background-size="cover" class="no-title" -->
 
 # Local Repository
-
-## Let's dive !
 
 ---
 

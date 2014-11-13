@@ -1,4 +1,4 @@
-<!-- .slide: data-background="img/workflows/become-social.jpg" data-background-size="cover" class="no-title" -->
+<!-- .slide: data-background="img/workflows/become-social.jpg" data-background-size="cover" class="no-title grey" -->
 
 # Become Social
 

@@ -16,3 +16,38 @@
 // @import "runnable";
 @import "cover";
 
+.reveal section {
+    img {
+        border: none;
+    }
+
+    .two-cols {
+        & > *,
+        & > .is-top{
+            vertical-align: top;
+            display: inline-block;
+            width: 48%;
+        }
+
+        &.is-middle > * {
+            vertical-align: middle;
+        }
+
+        &.is-bottom > * {
+            vertical-align: bottom;
+        }
+    }
+
+    .fragment.visible {
+        &.current-visible,
+        &.fade-out {
+            display: none;
+        }
+        &.current-fragment {
+            display: inline-block;
+            &.fade-out {
+                display: none;
+            }
+        }
+    }
+}

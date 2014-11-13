@@ -22,6 +22,8 @@ $ git help
 $ git help commit
 ```
 
+[Git Book](http://git-scm.com/book/en/v2/) is a golden mine too.
+
 ---
 
 ## Generate an ssh key

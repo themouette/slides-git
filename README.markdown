@@ -1,17 +1,7 @@
-Slides template
-===============
+Slides Git
+==========
 
-This is a default repository to create a
-[reveal.js](https://github.com/hakimel/reveal.js/) presentations.
-
-Clone it and replace origin with your repository.
-
-``` sh
-$ PRESENTATION_NAME="your-presentation"
-$ git clone https://github.com/themouette/slides-bootstrap.git $PRESENTATION_NAME
-$ cd $PRESENTATION_NAME
-$ git remote set-url origin git@github.com:you/${PRESENTATION_NAME}.git
-```
+* [Clermont'ech](http://themouette.github.io/slides-git/?theme=clermontech)
 
 Build
 -----

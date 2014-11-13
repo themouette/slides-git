@@ -44,10 +44,13 @@
             display: none;
         }
         &.current-fragment {
-            display: inline-block;
+            display: block;
             &.fade-out {
                 display: none;
             }
         }
+    }
+    img.fragment.visible.current-fragment {
+        display: inline-block;
     }
 }

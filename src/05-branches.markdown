@@ -155,7 +155,9 @@ The **top** of a linked list has a name: the **BRANCH** name.
 (master) $ git cherry-pick 8a6e1a3
 ```
 
-![](img/branches/cherry-pick.png)
+![](img/branches/cherry-pick.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
+![](img/branches/cherry-pick-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
+![](img/branches/cherry-pick-2.svg) <!-- .element: class="fragment current-visible" -->
 
 
 ---

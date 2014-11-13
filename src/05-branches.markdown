@@ -6,7 +6,15 @@
 
 ## Linear History
 
-![](img/branches/linear-history.png)
+![](img/branches/linear-history.svg)
+
+---
+
+## Tag
+
+![](img/branches/tag.svg)
+
+A **Tag** is a label on a commit.
 
 ---
 
@@ -19,21 +27,15 @@
 
 ## Branches
 
+![](img/branches/branch.svg)
+
 The **top** of a linked list has a name: the **BRANCH** name.
-
-![](img/branches/branch.png)
-
----
-
-## Tag
-
-A **Tag** is a label on a commit.
-
-![](img/branches/tag.jpg)
 
 ---
 
 ## Notes On Tags
+
+![](img/branches/branch-head.svg)
 
 * **HEAD** is a symbolic ref, which points to the **current branch**.
 * Whereas branches moves, tags doesn't
@@ -63,17 +65,24 @@ A **Tag** is a label on a commit.
 
 <p style="margin:50px auto;">Switch working directory to `my-branch`</p>
 
-``` sh
-(master) $ git branch my-branch
-(master) $ git checkout my-branch
+<div class="two-cols is-middle">
+
+<pre><code class="sh">
+(master) $ git branch feature
+(master) $ git checkout feature
 
 (my-branch) $ git branch
     master
-    * my-branch
-```
+    * feature
+</code></pre>
+
+<p>
+![](img/branches/git-checkout-branch.svg)
+</p>
+
+</div>
 
 <p class="fragment" style="margin-top:50px;font-style:italic;">You can use shortcut `git checkout -b my-branch`</p>
-
 
 ---
 
@@ -82,12 +91,16 @@ A **Tag** is a label on a commit.
 <p style="margin:50px auto;">Replay the current branch on top of `master`.</p>
 
 ``` sh
-(mywork) $ git rebase master
+(feature) $ git rebase master
 ```
 
-![](img/branches/rebase.png)
+![](img/branches/rebase.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
+![](img/branches/rebase-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
+![](img/branches/rebase-2.svg) <!-- .element: class="fragment current-visible" -->
+![](img/branches/rebase-3.svg) <!-- .element: class="fragment current-visible" -->
+![](img/branches/rebase-4.svg) <!-- .element: class="fragment current-visible" -->
 
-<p class="fragment" style="margin-top:50px;font-style:italic;">If merge is not obvious, git asks you to solve conflict manualy.</p>
+<p class="fragment" style="margin-top:50px;font-style:italic;">If merge is not obvious, git asks you to solve conflict manually.</p>
 
 
 ---
@@ -97,10 +110,37 @@ A **Tag** is a label on a commit.
 <p style="margin:50px auto;">Join two or more development histories together.</p>
 
 ``` sh
-(master) $ git merge iss53 --no-ff
+(master) $ git merge feature
 ```
 
-![](img/branches/merge.png)
+![](img/branches/merge.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
+![](img/branches/merge-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
+
+---
+
+## git merge Fast Forward
+
+<p style="margin:50px auto;">.</p>
+
+``` sh
+(master) $ git merge feature
+```
+
+![](img/branches/merge-ff.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
+![](img/branches/merge-ff-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
+
+---
+
+## git merge --no-ff
+
+<p style="margin:50px auto;">.</p>
+
+``` sh
+(master) $ git merge feature --no-ff
+```
+
+![](img/branches/merge-no-ff.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
+![](img/branches/merge-no-ff-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
 
 <p class="fragment" style="margin-top:50px;font-style:italic;">Using `--no-ff` keeps track of the feature branch.</p>
 

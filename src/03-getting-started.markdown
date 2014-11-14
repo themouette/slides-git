@@ -29,7 +29,7 @@ are already there.
 
 ## Three Zones
 
-![](img/repository-anatomy/zones.png)
+Everything in GIT is in one of those following area.
 
 <ul style="margin-top: 50px;">
     <li><strong class="fragment highlight-green">Working directory</strong>: the directory you work in;</li>
@@ -37,6 +37,8 @@ are already there.
     <li><strong class="fragment highlight-blue">Repository</strong>: history of every committed change.</li>
 </ul>
 
-<aside class="notes">
-Everything in GIT is in one of the following area.
-</aside>
+---
+
+## Three Zones
+
+![](img/repository-anatomy/zones.png)

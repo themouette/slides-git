@@ -94,11 +94,11 @@ The **top** of a linked list has a name: the **BRANCH** name.
 (feature) $ git rebase master
 ```
 
-![](img/branches/rebase.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
-![](img/branches/rebase-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
-![](img/branches/rebase-2.svg) <!-- .element: class="fragment current-visible" -->
-![](img/branches/rebase-3.svg) <!-- .element: class="fragment current-visible" -->
-![](img/branches/rebase-4.svg) <!-- .element: class="fragment current-visible" -->
+![](img/branches/rebase.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/rebase-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
+![](img/branches/rebase-2.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
+![](img/branches/rebase-3.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
+![](img/branches/rebase-4.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
 
 <p class="fragment" style="margin-top:50px;font-style:italic;">If merge is not obvious, git asks you to solve conflict manually.</p>
 
@@ -113,8 +113,8 @@ The **top** of a linked list has a name: the **BRANCH** name.
 (master) $ git merge feature
 ```
 
-![](img/branches/merge.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
-![](img/branches/merge-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
+![](img/branches/merge.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/merge-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
 
 ---
 
@@ -124,8 +124,8 @@ The **top** of a linked list has a name: the **BRANCH** name.
 (master) $ git merge feature
 ```
 
-![](img/branches/merge-ff.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
-![](img/branches/merge-ff-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
+![](img/branches/merge-ff.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/merge-ff-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
 
 ---
 
@@ -135,8 +135,8 @@ The **top** of a linked list has a name: the **BRANCH** name.
 (master) $ git merge feature --no-ff
 ```
 
-![](img/branches/merge-no-ff.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
-![](img/branches/merge-no-ff-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
+![](img/branches/merge-no-ff.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/merge-no-ff-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
 
 <p class="fragment" style="margin-top:50px;font-style:italic;">Using `--no-ff` keeps track of the feature branch.</p>
 
@@ -151,9 +151,9 @@ The **top** of a linked list has a name: the **BRANCH** name.
 (master) $ git cherry-pick 8a6e1a3
 ```
 
-![](img/branches/cherry-pick.svg) <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
-![](img/branches/cherry-pick-1.svg) <!-- .element: class="fragment current-visible" data-fragment-index="0" -->
-![](img/branches/cherry-pick-2.svg) <!-- .element: class="fragment current-visible" -->
+![](img/branches/cherry-pick.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/cherry-pick-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
+![](img/branches/cherry-pick-2.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
 
 
 ---

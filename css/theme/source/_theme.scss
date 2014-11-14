@@ -75,11 +75,11 @@
     .two-cols > * {
         width: 48%;
     }
-    .tthree-cols > * {
+    .three-cols > * {
         width: 32%;
     }
 
-    .fragment.visible {
+    .fragment.visible.invisible-fragment {
         &.current-visible,
         &.fade-out {
             display: none;
@@ -91,7 +91,7 @@
             }
         }
     }
-    img.fragment.visible.current-fragment {
+    img.fragment.visible.invisible-fragment.current-fragment {
         display: inline-block;
     }
 }

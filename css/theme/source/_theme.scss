@@ -79,19 +79,24 @@
         width: 32%;
     }
 
-    .fragment.visible.invisible-fragment {
+    .fragment.invisible-fragment {
         &.current-visible,
-        &.fade-out {
+        &.visible.fade-out {
             display: none;
         }
-        &.current-fragment {
+        &.visible.keep-after {
+            display: block;
+            opacity: 1;
+        }
+        &.visible.current-fragment {
             display: block;
             &.fade-out {
                 display: none;
             }
         }
     }
-    img.fragment.visible.invisible-fragment.current-fragment {
+    img.fragment.visible.invisible-fragment.current-fragment,
+    img.fragment.invisible-fragment.visible.keep-after {
         display: inline-block;
     }
 }

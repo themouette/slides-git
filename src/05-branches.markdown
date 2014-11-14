@@ -47,13 +47,13 @@ The **top** of a linked list has a name: the **BRANCH** name.
 <p style="margin:50px auto;">List, create, or delete branches</p>
 
 ``` sh
-(master) $ git branch my-branch
+(master) $ git branch feature
 
 (master) $ git branch
     * master
-    my-branch
+    feature
 
-(master) $ git branch -d my-branch
+(master) $ git branch -d feature
 ```
 
 <p class="fragment" style="margin-top:50px;font-style:italic;">Only local branches can be managed</p>
@@ -77,7 +77,8 @@ The **top** of a linked list has a name: the **BRANCH** name.
 </code></pre>
 
 <p>
-![](img/branches/git-checkout-branch.svg)
+![](img/branches/git-checkout-branch.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/git-checkout-branch-1.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" data-fragment-index="0" -->
 </p>
 
 </div>
@@ -98,9 +99,9 @@ The **top** of a linked list has a name: the **BRANCH** name.
 ![](img/branches/rebase-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
 ![](img/branches/rebase-2.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
 ![](img/branches/rebase-3.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
-![](img/branches/rebase-4.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
+![](img/branches/rebase-4.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" -->
 
-<p class="fragment" style="margin-top:50px;font-style:italic;">If merge is not obvious, git asks you to solve conflict manually.</p>
+<p class="fragment" style="font-style:italic;">If merge is not obvious, git asks you to solve conflict manually.</p>
 
 
 ---
@@ -114,7 +115,7 @@ The **top** of a linked list has a name: the **BRANCH** name.
 ```
 
 ![](img/branches/merge.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
-![](img/branches/merge-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
+![](img/branches/merge-1.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" data-fragment-index="0" -->
 
 ---
 
@@ -125,7 +126,7 @@ The **top** of a linked list has a name: the **BRANCH** name.
 ```
 
 ![](img/branches/merge-ff.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
-![](img/branches/merge-ff-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
+![](img/branches/merge-ff-1.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" data-fragment-index="0" -->
 
 ---
 
@@ -136,7 +137,7 @@ The **top** of a linked list has a name: the **BRANCH** name.
 ```
 
 ![](img/branches/merge-no-ff.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
-![](img/branches/merge-no-ff-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
+![](img/branches/merge-no-ff-1.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" data-fragment-index="0" -->
 
 <p class="fragment" style="margin-top:50px;font-style:italic;">Using `--no-ff` keeps track of the feature branch.</p>
 

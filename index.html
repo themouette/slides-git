@@ -1,0 +1,1000 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Git</title>
+
+        <meta name="description" content="Slides bootstrap">
+        <meta name="author" content="Julien Muetton">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/example.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+        
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section class="cover">
+                    <h1>Git</h1>
+                    
+                        <img src="img/cover.png" class="cover-img" />
+                    
+                    <p class="author">
+                    <small>
+                        By
+                        
+                            <a href="http://muetton.me">Julien Muetton</a>
+                        
+                        
+                            / <a href="https://twitter.com/themouette">@themouette</a>
+                        
+                    </small>
+                    </p>
+                    <p class="given">
+                        <small id="presentation-location" class="given-at"></small>
+                        <small id="presentation-date" class="given-on"></small>
+                    </p>
+                </section>
+
+                <section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+<!-- .slide: data-background="img/setup/setup.jpg" data-background-size="cover" class="no-title black" -->
+
+# Setup
+
+
+---
+
+## Download an install
+
+Refer to [online
+documentation](http://git-scm.com/book/en/Getting-Started-Installing-Git)
+
+---
+
+## git help
+
+<p style="margin:50px auto;">To get some help on a command.</p>
+
+``` sh
+$ man git-commit
+$ git help
+$ git help commit
+```
+
+[Git Book](http://git-scm.com/book/en/v2/) is a golden mine too.
+
+---
+
+## Generate an ssh key
+
+``` sh
+$ cd ~
+$ ssh-keygen -t rsa
+$ cat id_rsa.pub
+ssh-rsa
+AAAAB3NzaC1yc2EAAAABIwAAAQEAyyA8wePstPC69PeuHFtOwyTecByonsHFAjHbVnZ+h0dpomvLZxUtbknNj3+
+c7MPYKqKBOx9gUKV/diR/mIDqsb405MlrI1kmNR9zbFGYAAwIH/Gxt0Lv5ffwaqsz7cECHBbMojQGEz3IH3twEvDfF6cu5p
+00QfP0MSmEi/eB+W+h30NGdqLJCziLDlp409jAfXbQm/4Yx7apLvEmkaYSrb5f/pfvYv1FEV1tS8/J7DgdHUAWo6gyGUUSZ
+JgsyHcuJT7v9Tf0xwiFWOWL9WsWXa9fCKqTeYnYJhHlqfinZRnT/+jkz0OZ7YmXo6j4Hyms3RCOqenIX1W6gnIn+eQIkw==
+my computer
+```
+
+Then add the public key content to github, bitbucket, gitlab or any other server and test everything is all right.
+
+``` sh
+$ ssh git@github.com
+Hi themouette! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+---
+
+## Configure your identity
+
+``` sh
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+
+
+---
+
+## Configure your editor
+
+Default is `vi`, but if you really want to change:
+
+<pre style="margin-top: 50px;"><code class="sh">
+$ git config --global core.editor emacs
+</code></pre>
+
+<pre style="margin-top: 50px;"><code class="sh">
+$ git config --global core.editor \
+    "'C:/Program Files/Notepad++/notepad++.exe' \
+    -multiInst -notabbar -nosession -noPlugin"
+</code></pre>
+
+<p style="margin-top: 50px;">
+[Vi cheat sheet](http://www.digilife.be/quickreferences/QRC/Vi%20Reference%20Card.pdf)
+</p>
+
+
+---
+
+## Configure your diff tool
+
+<pre style="margin-top: 50px;"><code class="sh">
+$ git config --global merge.tool vimdiff
+</code></pre>
+
+<p style="margin-top: 50px;">
+[Kdiff3](http://kdiff3.sourceforge.net/)
+</p>
+
+
+---
+
+## Add some alias
+
+* [Everyday git aliases](http://code.joejag.com/2013/everyday-git-aliases/)
+* [Must have git aliases](http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/)
+
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+<!-- .slide: data-background="img/version-control/theory.jpg" data-background-size="cover" class="no-title" -->
+
+# Version Control
+
+## A bit of theory
+
+---
+
+## Definition
+
+Version control is a system that records changes to a file or set of files over
+time so that you can recall specific versions later.
+
+---
+
+### Local
+
+![](img/version-control/checkout.png)
+
+<aside class="notes">
+Local version system put in the same place versions and working directory.
+</aside>
+
+---
+
+### Centralised
+
+![](img/version-control/cvcs.png)
+
+<aside class="notes">
+In centralized version control everything is tracked on the server, clients just
+check out the latest snapshot of the files.
+</aside>
+
+---
+
+### Decentralized
+
+![](img/version-control/dvcs.png)
+
+<aside class="notes">
+In decentralized version control, every client mirror the whole repository.
+</aside>
+
+---
+
+# GIT is decentralized
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+<!-- .slide: data-background="img/getting-started/plunge.jpg" data-background-size="cover" class="no-title black" -->
+
+# Getting Started
+
+---
+
+## Local first
+
+Everything is local, remote operations are only for sharing.
+
+---
+
+## git init
+
+<p style="margin:50px auto;">Create an empty git repository or reinitialize an existing one.</p>
+
+``` sh
+$ git init
+
+Initialized empty Git repository in ~/.git/
+```
+
+<p style="margin-top:50px;font-style:italic;" class="fragment">
+Running git init in an existing repository will **not** overwrite things that
+are already there.
+</p>
+
+---
+
+### Commit
+
+A **commit** is a snapshot of your working tree and a pointer to previous commit.
+
+![](img/repository-anatomy/commit.png)
+
+---
+
+## Three Zones
+
+Everything in GIT is in one of those following area.
+
+<ul style="margin-top: 50px;">
+    <li><strong class="fragment highlight-green">Working directory</strong>: the directory you work in;</li>
+    <li><strong class="fragment highlight-red">Staging area</strong>: prepare next commit;</li>
+    <li><strong class="fragment highlight-blue">Repository</strong>: history of every committed change.</li>
+</ul>
+
+---
+
+## Three Zones
+
+![](img/repository-anatomy/zones.png)
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+<!-- .slide: data-background="img/local-repository/local.jpg" data-background-size="cover" class="no-title" -->
+
+# Local Repository
+
+---
+
+## git add <i>file</i>
+
+<p style="margin:50px auto;">Add file contents to the **staging area**.</p>
+
+``` sh
+$ git add README
+```
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">Track a file for the first time.</p>
+<p class="fragment" style="font-style:italic;">Track changes on file since previous commit.</p>
+
+
+---
+
+## git checkout <i>[file]</i>
+
+<p style="margin:50px auto;">Checkout a branch or paths to the working tree.</p>
+
+``` sh
+$ git checkout README
+$ git checkout my-branch
+```
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">Reset **file/path** to **staging area**'s version.</p>
+<p class="fragment" style="font-style:italic;">Switch branch.</p>
+
+
+---
+
+## git commit
+
+<p style="margin:50px auto;">Create a commit from current **staging area**'s status.</p>
+
+``` sh
+$ git commit
+[master 8a6e1a3] My awesome message.D
+2 files changed, 10 insertions(+), 4 deletions(-)
+create mode 100644 img/01/branch.png
+```
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">Returns the **commit hash** `8a6e1a3`.</p>
+<p class="fragment" style="font-style:italic;">To edit your latest commit, use `git commit --amend`.</p>
+
+
+---
+
+## git status
+
+<p style="margin:50px auto;">Show current working dirrectory and staging area.</p>
+
+
+---
+
+## git mv <i>src</i> <i>destination</i>
+
+<p style="margin:50px auto;">Rename src into destination.</p>
+
+
+---
+
+## git rm <i>file</i>
+
+<p style="margin:50px auto;">Delete file from tracking.</p>
+
+
+---
+
+## git log <i>[file]</i>
+
+<p style="margin:50px auto;">Show commit logs.</p>
+
+``` sh
+$ git log
+
+commit 8fbdc87e2f254c1c52ee9c2cae886985421fd3ef
+Author: Julien Muetton <themouette@gmail.com>
+Date:   Mon Aug 26 13:30:52 2013 +0200
+
+    Init as an npm package
+
+commit f8db4d12eea0174b8e8476c21510133e3bbd27e3
+Author: Julien Muetton <themouette@gmail.com>
+Date:   Mon Aug 26 13:24:20 2013 +0200
+
+    First commit
+```
+
+<pre class="fragment" style="margin-top:50px;font-style:italic;">
+<code class="sh">$ git log --graph --decorate  # Display network graph</code></pre>
+<pre class="fragment">
+<code class="sh">$ git log --stat # show stats</code></pre>
+<pre class="fragment" style="font-style:italic;">
+<code class="sh">$ git log --pretty=oneline --abbrev-commit # A commit per line</code></pre>
+
+
+---
+
+## git diff <i>[file]</i>
+
+<p style="margin:50px auto;">Show changes between two states (commits, staging, working directory...)</p>
+
+``` sh
+$ git diff
+diff --git a/index.html b/index.html
+index de3bfb6..b3d2ddf 100644
+--- a/index.html
++++ b/index.html
+@@ -36,10 +36,16 @@
+
+some awesome content
+- some former content
++ some new content
+
+```
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">`git diff topic..master` to compare branches.</p>
+<p class="fragment" style="margin-top:50px;font-style:italic;">`git diff HEAD--8a6e1a3` to compare commits.</p>
+
+
+---
+
+## git stash
+
+<p style="margin:50px auto;">Stash the changes in a dirty working directory away.</p>
+
+``` sh
+$ git stash
+```
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">`git stash list` to list stashs.</p>
+<p class="fragment" style="margin-top:50px;font-style:italic;">`git stash apply` to apply latest stash.</p>
+<p class="fragment" style="margin-top:50px;font-style:italic;">`git stash pop` to apply and delete latest stash.</p>
+
+
+---
+
+## git blame <i>file</i>
+
+<p style="margin:50px auto;">Show what revision and author last modified each line of a file.</p>
+
+``` sh
+$ git blame README
+
+2c2513c7 (Julien Muetton    2013-08-26 18:48:45 +0200   1) # GIT basics
+2c2513c7 (Julien Muetton    2013-08-26 18:48:45 +0200   2)
+2c2513c7 (Julien Muetton    2013-08-26 18:48:45 +0200   3) ---
+2c2513c7 (Julien Muetton    2013-08-26 18:48:45 +0200   4)
+2c2513c7 (Julien Muetton    2013-08-26 18:48:45 +0200   5) ## Local first
+
+```
+
+
+---
+
+## Transitions
+
+![](img/local-repository/transitions.png)
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+<!-- .slide: data-background="img/branches/use-branches.jpg" data-background-size="cover" class="no-title blue" -->
+
+# Branches
+
+---
+
+## Linear History
+
+![](img/branches/linear-history.svg)
+
+---
+
+## Typical git repository
+
+![](img/branches/branches.png)
+
+---
+
+## Tag
+
+![](img/branches/tag.svg)
+
+A **Tag** is a label on a commit.
+
+
+---
+
+## Branches
+
+![](img/branches/branch.svg)
+
+The **top** of a linked list has a name: the **BRANCH** name.
+
+---
+
+## Notes On Tags And Branches
+
+![](img/branches/branch-head.svg)
+
+* **HEAD** is a symbolic ref, which points to the **current branch**.
+* Whereas branches moves, tags doesn't
+
+---
+
+## git branch
+
+<p style="margin:50px auto;">List, create, or delete branches</p>
+
+``` sh
+(master) $ git branch feature
+
+(master) $ git branch
+    * master
+    feature
+
+(master) $ git branch -d feature
+```
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">Only local branches can be managed</p>
+
+
+---
+
+## git checkout <i>my-branch</i>
+
+<p style="margin:50px auto;">Switch working directory to `my-branch`</p>
+
+<div class="two-cols is-middle">
+
+<pre><code class="sh">
+(master) $ git branch feature
+(master) $ git checkout feature
+
+(my-branch) $ git branch
+    master
+    * feature
+</code></pre>
+
+<p>
+![](img/branches/git-checkout-branch.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/git-checkout-branch-1.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" data-fragment-index="0" -->
+</p>
+
+</div>
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">You can use shortcut `git checkout -b my-branch`</p>
+
+---
+
+## git rebase <i>master</i>
+
+<p style="margin:50px auto;">Replay the current branch on top of `master`.</p>
+
+``` sh
+(feature) $ git rebase master
+```
+
+![](img/branches/rebase.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/rebase-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
+![](img/branches/rebase-2.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
+![](img/branches/rebase-3.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
+![](img/branches/rebase-4.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" -->
+
+<p class="fragment" style="font-style:italic;">If merge is not obvious, git asks you to solve conflict manually.</p>
+
+
+---
+
+## git merge
+
+<p style="margin:50px auto;">Join two or more development histories together.</p>
+
+``` sh
+(master) $ git merge feature
+```
+
+![](img/branches/merge.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/merge-1.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" data-fragment-index="0" -->
+
+---
+
+## git merge Fast Forward
+
+``` sh
+(master) $ git merge feature
+```
+
+![](img/branches/merge-ff.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/merge-ff-1.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" data-fragment-index="0" -->
+
+---
+
+## git merge --no-ff
+
+``` sh
+(master) $ git merge feature --no-ff
+```
+
+![](img/branches/merge-no-ff.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/merge-no-ff-1.svg) <!-- .element: class="fragment invisible-fragment current-visible keep-after" data-fragment-index="0" -->
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">Using `--no-ff` keeps track of the feature branch.</p>
+
+
+---
+
+## git cherry-pick
+
+<p style="margin:50px auto;">Pick a commit and apply it on current **HEAD**.</p>
+
+``` sh
+(master) $ git cherry-pick 8a6e1a3
+```
+
+![](img/branches/cherry-pick.svg) <!-- .element: class="fragment invisible-fragment fade-out" data-fragment-index="0" -->
+![](img/branches/cherry-pick-1.svg) <!-- .element: class="fragment invisible-fragment current-visible" data-fragment-index="0" -->
+![](img/branches/cherry-pick-2.svg) <!-- .element: class="fragment invisible-fragment current-visible" -->
+
+
+---
+
+## Note on conflicts
+
+``` sh
+$ git merge iss53
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ git diff
+
+<<<<<<< HEAD:index.html
+<div id="footer">contact : email.support@github.com</div>
+=======
+<div id="footer">
+please contact us at support@github.com
+</div>
+>>>>>>> iss53:index.html
+
+```
+
+<div  class="fragment">
+<p>Git is **verbose**, but for your first conflict...</p>
+![](img/branches/better-call-saul.png)
+</div>
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+<!-- .slide: data-background="img/remotes/enter-remotes.jpg" data-background-size="cover" class="no-title" -->
+
+# Enter remotes
+
+
+---
+
+## Remote
+
+A remote is a mirror of your local repository.
+
+![](img/remotes/remotes.png)
+
+
+---
+
+## git clone <i>remote</i> <i>[path]</i>
+
+<p style="margin:50px auto;">Clone a repository into a new directory.</p>
+
+``` sh
+$ git clone git@github.com/themouette/fossil-core.git
+
+(master) $ git branch -a
+    * master
+    remotes/origin/HEAD -> origin/master
+    remotes/origin/master
+```
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">You can use http(s) or ssh to communicate with remotes.</p>
+<p class="fragment" style="margin-top:50px;">Default remote is names `origin`.</p>
+
+
+---
+
+## git remote
+
+<p style="margin:50px auto;">Manage remote mirrors.</p>
+
+``` sh
+$ git remote
+origin
+
+$ git remote show origin
+* remote origin
+Fetch URL: git@github.com:themouette/fossil-core.git
+Push  URL: git@github.com:themouette/fossil-core.git
+HEAD branch: master
+Remote branch:
+    master tracked
+Local branch configured for 'git pull':
+    master merges with remote master
+Local ref configured for 'git push':
+    master pushes to master
+```
+
+<p class="fragment" style="margin-top:50px;font-style:italic;">You can add multiple remotes.</p>
+
+
+---
+
+## git fetch
+
+<p style="margin:50px auto;">Download objects and refs from another repository.</p>
+
+``` sh
+$ git fetch origin
+```
+
+![](img/remotes/fetch.png)
+
+<p class="fragment" style="font-style:italic;">Note that nothing changes in your local direcory.</p>
+
+
+---
+
+## git pull [--rebase] <i>remote</i> <i>branch</i>
+
+<p style="margin:50px auto;">Fetch and merge or rebase remote branch.</p>
+
+``` sh
+$ git pull --rebase origin master
+```
+
+<div class="fragment" style="margin-top:50px;font-style:italic;">
+<p>Equivalent to:</p>
+
+<pre><code class="sh">
+$ git fetch origin/master
+$ git rebase origin/master
+</code></pre>
+</div>
+
+
+---
+
+## git push <i>remote</i> <i>branch</i>
+
+<p style="margin:50px auto;">Update remote refs along with associated objects.</p>
+
+``` sh
+$ git push origin serverfix
+Counting objects: 20, done.
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (15/15), 1.74 KiB, done.
+Total 15 (delta 5), reused 0 (delta 0)
+To git@github.com:schacon/simplegit.git
+* [new branch]      serverfix -> serverfix
+```
+<p class="fragment" style="margin-top:50px;font-style:italic;">Only fast forward
+commits can be pushed</p>
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+<!-- .slide: data-background-image="img/extras/extras.jpg" data-background-size="auto 90%" class="hide-title" data-background-color="#fff" -->
+
+# Extras
+
+---
+
+## Submodules
+
+> Avoid submodules
+
+``` sh
+git submodule add https://github.com/hakimel/reveal.js.git reveal.js
+
+git submodule update --init
+```
+
+---
+
+## Hooks
+
+Extend Git behaviour
+
+---
+
+### Client Side
+
+<div class="three-cols">
+<div>
+<h4>Commit Workflow</h4>
+<ul style="margin-top: 55px;">
+    <li>pre-commit</li>
+    <li>prepare-commit-msg</li>
+    <li>commit-msg</li>
+    <li>post-commit</li>
+</ul>
+</div>
+
+<div>
+<h4>Email Workflow</h4>
+<p style="font-size: 25px; line-height: 25px;">(when using `git am`)</p>
+<ul style="margin-top: 15px;">
+    <li>format-patch</li>
+    <li>applypatch-msg</li>
+    <li>pre-applypatch</li>
+    <li>post-applypatch</li>
+</ul>
+</div>
+
+<div>
+<h4>Other</h4>
+<ul style="margin-top: 55px;">
+    <li>post-checkout</li>
+    <li>post-merge</li>
+    <li>pre-rebase</li>
+    <li>pre-push</li>
+</ul>
+</div>
+</div>
+
+---
+
+### Server Side
+
+* pre-receive
+* update
+* post-receive
+
+<blockquote style="margin-top: 60px;">
+<p>Learn more on [Git Hooks](http://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)</p>
+</blockquote>
+
+
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+<!-- .slide: data-background="img/workflows/become-social.jpg" data-background-size="cover" class="no-title grey" -->
+
+# Become Social
+
+## Common Workflows
+
+---
+
+## Centralized Workflow
+
+![](img/workflows/centralized.png)
+
+Similar to centralized version control, everybody can edit central repository.
+
+
+---
+
+## Blessed Repository
+
+![](img/workflows/blessed.png)
+
+Developer create a request to merge it's changes.
+
+Release masters chose which requests to merge.
+
+
+---
+
+## Lieutenant Workflow
+
+![](img/workflows/lieutenant.png)
+
+In **huge** projects, lieutenants are **trusted** individuals in charge of reviewing requests.
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+<!-- .slide: data-background="img/repository-anatomy/surgery.jpg" data-background-size="cover" class="no-title black" -->
+
+# Under the hood
+
+## Anatomy Of A Repository
+
+---
+
+## `.git` directory
+
+```
+.git
+|-- branches/
+|-- hooks/
+|-- info/
+|-- logs/
+|-- modules/
+|-- objects/
+|-- refs/
+|-- COMMIT_EDITMSG
+|-- config
+|-- description
+|-- HEAD
+|-- index
+`-- packed-refs
+```
+
+---
+
+## Configuration
+
+---
+
+## 3 Types Of Objects
+
+* blob
+* tree
+* commit
+
+---
+
+### Blob
+
+Each **FILE** that you add to the repo is turned into a **BLOB** object.
+
+---
+
+### tree
+
+Each **DIRECTORY** is turned into a **TREE** object.
+
+_Obviously, a tree object can contain other tree objects and blob objects, just like a directory can contain other directories and files._
+
+---
+
+### Commit
+
+A **commit** is a snapshot of your working tree and a pointer to previous commit.
+
+![](img/repository-anatomy/commit.png)
+
+---
+
+## References
+
+* tag
+* branch
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+# Resources
+
+---
+
+## Online
+
+* [Git cheat sheet](www.cheat-sheets.org/saved-copy/git-cheat-sheet.pdf)
+* [Pro git book](http://git-scm.com/book)
+* [Try git](http://try.github.io/) without installing.
+* [Make the switch](https://www.atlassian.com/en/git/)
+
+---
+
+### slides
+
+* [Git machine](http://fr.slideshare.net/err/git-machine)
+* [Git 101](http://fr.slideshare.net/chacon/git-101-presentation)
+
+---
+
+## videos
+
+* [Introduction to Git with Scott Chacon of GitHub](http://youtu.be/ZDR433b0HJY)
+* [Kernel developper's typical
+day](http://video.fosdem.org/2011/maintracks/kernel-development.xvid.avi)
+
+</script></section>
+<section data-markdown data-separator="^\n---+\n---+\n$" data-vertical="^\n---+\n$" data-notes="^Note:" data-charset="utf-8"><script type="text/template">
+# Thank you
+
+---
+---
+
+# Questions
+
+http://themouette.github.io/slides-git/?theme=clermontech
+
+</script></section>
+            </div> <!-- End of .slides -->
+
+        </div> <!-- end of #reveal -->
+
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.min.js"></script>
+
+        
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>

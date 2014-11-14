@@ -10,17 +10,17 @@
 
 ---
 
+## Typical git repository
+
+![](img/branches/branches.png)
+
+---
+
 ## Tag
 
 ![](img/branches/tag.svg)
 
 A **Tag** is a label on a commit.
-
----
-
-## Typical git repository
-
-![](img/branches/branches.png)
 
 
 ---
@@ -33,7 +33,7 @@ The **top** of a linked list has a name: the **BRANCH** name.
 
 ---
 
-## Notes On Tags
+## Notes On Tags And Branches
 
 ![](img/branches/branch-head.svg)
 

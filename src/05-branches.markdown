@@ -120,8 +120,6 @@ The **top** of a linked list has a name: the **BRANCH** name.
 
 ## git merge Fast Forward
 
-<p style="margin:50px auto;">.</p>
-
 ``` sh
 (master) $ git merge feature
 ```
@@ -132,8 +130,6 @@ The **top** of a linked list has a name: the **BRANCH** name.
 ---
 
 ## git merge --no-ff
-
-<p style="margin:50px auto;">.</p>
 
 ``` sh
 (master) $ git merge feature --no-ff

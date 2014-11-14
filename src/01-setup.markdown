@@ -63,26 +63,32 @@ $ git config --global user.email johndoe@example.com
 
 Default is `vi`, but if you really want to change:
 
-``` sh
+<pre style="margin-top: 50px;"><code class="sh">
 $ git config --global core.editor emacs
-```
+</code></pre>
 
-``` sh
+<pre style="margin-top: 50px;"><code class="sh">
 $ git config --global core.editor \
     "'C:/Program Files/Notepad++/notepad++.exe' \
     -multiInst -notabbar -nosession -noPlugin"
-```
+</code></pre>
 
+<p style="margin-top: 50px;">
 [Vi cheat sheet](http://www.digilife.be/quickreferences/QRC/Vi%20Reference%20Card.pdf)
+</p>
 
 
 ---
 
 ## Configure your diff tool
 
-``` sh
+<pre style="margin-top: 50px;"><code class="sh">
 $ git config --global merge.tool vimdiff
-```
+</code></pre>
+
+<p style="margin-top: 50px;">
+[Kdiff3](http://kdiff3.sourceforge.net/)
+</p>
 
 
 ---

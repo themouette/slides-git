@@ -27,6 +27,14 @@ are already there.
 
 ---
 
+### Commit
+
+A **commit** is a snapshot of your working tree and a pointer to previous commit.
+
+![](img/repository-anatomy/commit.png)
+
+---
+
 ## Three Zones
 
 Everything in GIT is in one of those following area.

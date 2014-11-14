@@ -73,6 +73,8 @@ $ git config --global core.editor \
     -multiInst -notabbar -nosession -noPlugin"
 ```
 
+[Vi cheat sheet](http://www.digilife.be/quickreferences/QRC/Vi%20Reference%20Card.pdf)
+
 
 ---
 

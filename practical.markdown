@@ -65,7 +65,7 @@ $ git remote add blessed git@gitlab:group/foo.git
 
 > Note that for this step, you must replace playerX with your very own role.
 
-Breate a new branch `feature-profile`.
+Create a new branch `feature-profile`.
 
 ``` sh
 $ git checkout -b feature-profile
